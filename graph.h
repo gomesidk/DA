@@ -153,6 +153,21 @@ bool Graph<T>::addEdge(const T &sourc, const T &dest, int walk_time, int drive_t
 }
 
 template <class T>
+Edge<T>* Vertex<T>::addEdge(Vertex<T> *dest, int walk_time, int drive_time) {
+    // Create a new edge from the current vertex (this) to the destination vertex (dest)
+    Edge<T>* edge = new Edge<T>(this, dest, walk_time, drive_time);
+
+    // Add this edge to the adjacency list of the current vertex (outgoing edges)
+    adj.push_back(edge);
+
+    // Also add this edge to the incoming edges list of the destination vertex (for reverse reference)
+    dest->incoming.push_back(edge);
+
+    // Return the created edge
+    return edge;
+}
+
+template <class T>
 bool Graph<T>::addBidirectionalEdge(const T &sourc, const T &dest, int walk_time, int drive_time) {
     auto v1 = findVertex(sourc);
     auto v2 = findVertex(dest);
@@ -179,10 +194,9 @@ Vertex<T> *Graph<T>::findVertex(const T &in) const {
 }
 
 template <class T>
-T getInfo() const {
-    return 
+T Vertex<T>::getInfo() const {
+    return info;  // Simply return the info of the vertex
 }
-
 
 template <class T>
 std::vector<Vertex<T> *> Graph<T>::getVertexSet() const {

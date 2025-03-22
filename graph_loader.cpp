@@ -3,6 +3,7 @@
 #include <fstream>
 #include <sstream>
 #include <iostream>
+#include <filesystem>
 using namespace std;
 
 /**
@@ -10,10 +11,14 @@ using namespace std;
  */
 void readLocations(const string &filename, Graph<int> &graph) {
     ifstream file(filename);
+
+
     if (!file.is_open()) {
         cerr << "Error opening file: " << filename << endl;
+        cerr << "Current working directory: " << std::filesystem::current_path() << endl;
         return;
     }
+
 
     string line;
     getline(file, line); // Skip the header

@@ -3,8 +3,8 @@
 using namespace std;
 
 int main() {
-    string locationsFile = "data/locations.csv";
-    string distancesFile = "data/distances.csv";
+    string locationsFile = "C:/Users/joaog/Documents/GitHub/DA/data/Locations.csv";
+    string distancesFile = "C:/Users/joaog/Documents/GitHub/DA/data/Distances.csv";
 
     Graph<int> graph = GraphLoader::loadGraph(locationsFile, distancesFile);
 
