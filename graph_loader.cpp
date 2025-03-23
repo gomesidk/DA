@@ -9,7 +9,7 @@ using namespace std;
 /**
  * Reads locations.csv and adds nodes to the graph.
  */
-void readLocations(const string &filename, Graph<int> &graph) {
+void readLocations(const string &filename, Graph<string> &graph) {
     ifstream file(filename);
 
 
@@ -35,7 +35,7 @@ void readLocations(const string &filename, Graph<int> &graph) {
             bool hasParking = (parkingStr == "1");
 
             // Add vertex to graph (store parking info in the vertex if needed)
-            graph.addVertex(id, hasParking);
+            graph.addVertex(idStr, hasParking);
         }
     }
 
@@ -45,7 +45,7 @@ void readLocations(const string &filename, Graph<int> &graph) {
 /**
  * Reads distances.csv and adds edges to the graph.
  */
-void readDistances(const std::string &filename, Graph<int> &graph) {
+void readDistances(const std::string &filename, Graph<string> &graph) {
     ifstream file(filename);
     if (!file.is_open()) {
         std::cerr << "Error opening file: " << filename << std::endl;
@@ -57,14 +57,14 @@ void readDistances(const std::string &filename, Graph<int> &graph) {
 
     while (std::getline(file, line)) {
         stringstream ss(line);
-        string loc1Str, loc2Str, drivingTimeStr, walkingTimeStr;
-        if (std::getline(ss, loc1Str, ',') &&
-            std::getline(ss, loc2Str, ',') &&
+        string loc1, loc2, drivingTimeStr, walkingTimeStr;
+        if (std::getline(ss, loc1, ',') &&
+            std::getline(ss, loc2, ',') &&
             std::getline(ss, drivingTimeStr, ',') &&
             std::getline(ss, walkingTimeStr, ',')) {
 
-            int loc1 = stoi(loc1Str);
-            int loc2 = stoi(loc2Str);
+            // int loc1 = stoi(loc1Str);
+            // int loc2 = stoi(loc2Str);
             int drivingTime = stoi(drivingTimeStr);
             int walkingTime = stoi(walkingTimeStr);
 
@@ -80,8 +80,8 @@ void readDistances(const std::string &filename, Graph<int> &graph) {
 /**
  * Loads the graph from both CSV files.
  */
-Graph<int> GraphLoader::loadGraph(const std::string &locationsFile, const std::string &distancesFile) {
-    Graph<int> graph;
+Graph<string> GraphLoader::loadGraph(const std::string &locationsFile, const std::string &distancesFile) {
+    Graph<string> graph;
     readLocations(locationsFile, graph);
     readDistances(distancesFile, graph);
     return graph;

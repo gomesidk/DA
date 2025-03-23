@@ -6,6 +6,8 @@
 #include <queue>
 #include <limits>
 #include <algorithm>
+#include <string>
+
 
 template <class T>
 class Edge;
@@ -98,6 +100,8 @@ protected:
     double flow; // for flow-related problems
 };
 
+
+
 /********************** Graph  ****************************/
 
 template <class T>
@@ -127,12 +131,177 @@ protected:
 inline void deleteMatrix(int **m, int n);
 inline void deleteMatrix(double **m, int n);
 
+/********************** Vertex Declarations  ****************************/
+
 template <class T>
 Vertex<T>::Vertex(T in, bool parking): info(in), parking(parking) {}
+
+
+template <class T>
+T Vertex<T>::getInfo() const {
+    return info;  // Simply return the info of the vertex
+}
+
+template <class T>
+std::vector<Edge<T> *> Vertex<T>::getAdj() const {
+    return adj;
+}
+
+template <class T>
+bool Vertex<T>::isVisited() const{
+    return visited;
+}
+
+template <class T>
+bool Vertex<T>::isProcessing() const{
+    return processing;
+}
+
+template <class T>
+unsigned int Vertex<T>::getIndegree() const{
+    return indegree;
+}
+
+template <class T>
+double Vertex<T>::getDist() const{
+    return dist;
+}
+
+template <class T>
+Edge<T> *Vertex<T>::getPath() const{
+    return path;
+}
+
+template <class T>
+std::vector<Edge<T> *> Vertex<T>::getIncoming() const {
+    return incoming;
+}
+
+template <class T>
+bool Vertex<T>::hasParking() const{
+    return parking;
+}
+
+template <class T>
+int Vertex<T>::getLow() const{
+    return low;
+}
+
+template <class T>
+int Vertex<T>::getNum() const{
+    return num;
+}
+
+
+template <class T>
+Edge<T>* Vertex<T>::addEdge(Vertex<T> *dest, int walk_time, int drive_time) {
+    // Create a new edge from the current vertex (this) to the destination vertex (dest)
+    Edge<T>* edge = new Edge<T>(this, dest, walk_time, drive_time);
+
+    // Add this edge to the adjacency list of the current vertex (outgoing edges)
+    adj.push_back(edge);
+
+    // Also add this edge to the incoming edges list of the destination vertex (for reverse reference)
+    dest->incoming.push_back(edge);
+
+    // Return the created edge
+    return edge;
+}
+
+
+/********************** Edge Declarations ****************************/
 
 template <class T>
 Edge<T>::Edge(Vertex<T> *orig, Vertex<T> *dest, int walk_time, int drive_time)
     : orig(orig), dest(dest), walk_time(walk_time), drive_time(drive_time) {}
+
+
+
+template <class T>
+Vertex <T> *Edge<T>::getDest() const {
+    return dest;
+}
+
+template <class T>
+int Edge<T>::getWalkTime() const {
+    return walk_time;
+}
+
+template <class T>
+int Edge<T>::getDriveTime() const {
+    return drive_time;
+}
+
+template <class T>
+bool Edge<T>::isSelected() const {
+    return selected;
+}
+
+template <class T>
+Vertex<T> *Edge<T>::getOrig() const {
+    return orig;
+}
+
+
+template <class T>
+Vertex <T> *Edge<T>::getDest() const {
+    return dest;
+}
+
+template <class T>
+int Edge<T>::getWalkTime() const {
+    return walk_time;
+}
+
+template <class T>
+int Edge<T>::getDriveTime() const {
+    return drive_time;
+}
+
+template <class T>
+bool Edge<T>::isSelected() const {
+    return selected;
+}
+
+template <class T>
+Edge<T> *Edge<T>::getReverse() const {
+    return reverse;
+}
+
+
+template <class T>
+Vertex <T> *Edge<T>::getDest() const {
+    return dest;
+}
+
+template <class T>
+int Edge<T>::getWalkTime() const {
+    return walk_time;
+}
+
+template <class T>
+int Edge<T>::getDriveTime() const {
+    return drive_time;
+}
+
+template <class T>
+bool Edge<T>::isSelected() const {
+    return selected;
+}
+
+template <class T>
+double Edge<T>::getFlow() const {
+    return flow;
+}
+
+
+/********************** Graph Declarations ****************************/
+
+template <class T>
+std::vector<Vertex<T> *> Graph<T>::getVertexSet() const {
+    return vertexSet;
+}
+
 
 template <class T>
 bool Graph<T>::addVertex(const T &in, bool parking) {
@@ -152,20 +321,7 @@ bool Graph<T>::addEdge(const T &sourc, const T &dest, int walk_time, int drive_t
     return true;
 }
 
-template <class T>
-Edge<T>* Vertex<T>::addEdge(Vertex<T> *dest, int walk_time, int drive_time) {
-    // Create a new edge from the current vertex (this) to the destination vertex (dest)
-    Edge<T>* edge = new Edge<T>(this, dest, walk_time, drive_time);
 
-    // Add this edge to the adjacency list of the current vertex (outgoing edges)
-    adj.push_back(edge);
-
-    // Also add this edge to the incoming edges list of the destination vertex (for reverse reference)
-    dest->incoming.push_back(edge);
-
-    // Return the created edge
-    return edge;
-}
 
 template <class T>
 bool Graph<T>::addBidirectionalEdge(const T &sourc, const T &dest, int walk_time, int drive_time) {
@@ -193,15 +349,6 @@ Vertex<T> *Graph<T>::findVertex(const T &in) const {
     return nullptr;
 }
 
-template <class T>
-T Vertex<T>::getInfo() const {
-    return info;  // Simply return the info of the vertex
-}
-
-template <class T>
-std::vector<Vertex<T> *> Graph<T>::getVertexSet() const {
-    return vertexSet;
-}
 
 template <class T>
 Graph<T>::~Graph() {

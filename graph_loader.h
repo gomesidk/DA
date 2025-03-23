@@ -6,7 +6,7 @@
 
 class GraphLoader {
 public:
-    static Graph<int> loadGraph(const std::string &locationsFile, const std::string &distancesFile);
+    static Graph<string> loadGraph(const std::string &locationsFile, const std::string &distancesFile);
 };
 
 #endif // GRAPH_LOADER_H
