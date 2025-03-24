@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/joaog/Desktop/2 ano/2º semestre/DA/project1
+# Install script for directory: C:/Users/joaog/Documents/GitHub/DA
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -52,6 +52,6 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-  file(WRITE "C:/Users/joaog/Desktop/2 ano/2º semestre/DA/project1/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+  file(WRITE "C:/Users/joaog/Documents/GitHub/DA/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()
