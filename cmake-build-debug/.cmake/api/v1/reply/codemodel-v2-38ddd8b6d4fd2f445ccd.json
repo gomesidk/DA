@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "untitled1::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-untitled1-Debug-4c52af3f6cd0165fdbdd.json",
+					"jsonFile" : "target-untitled1-Debug-d89f6a5a21bab5e98faa.json",
 					"name" : "untitled1",
 					"projectIndex" : 0
 				}
@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/joaog/Documents/GitHub/DA/cmake-build-debug",
-		"source" : "C:/Users/joaog/Documents/GitHub/DA"
+		"build" : "C:/Users/35191/CLionProjects/DA/cmake-build-debug",
+		"source" : "C:/Users/35191/CLionProjects/DA"
 	},
 	"version" : 
 	{

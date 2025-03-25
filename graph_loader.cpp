@@ -4,6 +4,7 @@
 #include <sstream>
 #include <iostream>
 #include <filesystem>
+#include <string>
 using namespace std;
 
 /**
@@ -63,14 +64,15 @@ void readDistances(const std::string &filename, Graph<string> &graph) {
             std::getline(ss, drivingTimeStr, ',') &&
             std::getline(ss, walkingTimeStr, ',')) {
 
-            // int loc1 = stoi(loc1Str);
-            // int loc2 = stoi(loc2Str);
+
             int drivingTime = stoi(drivingTimeStr);
             int walkingTime = stoi(walkingTimeStr);
 
             // Add bidirectional edges for both driving and walking
-            graph.addEdge(loc1, loc2, drivingTime, walkingTime); // Edge weight represents driving time
-            graph.addEdge(loc2, loc1, drivingTime, walkingTime); // Since the graph is undirected
+            graph.addEdge(loc1, loc2, drivingTime); // Edge weight represents driving time
+            graph.addEdge(loc2, loc1, drivingTime);// Since the graph is undirected
+            graph.addEdge(loc1, loc2, walkingTime);
+            graph.addEdge(loc2, loc1, walkingTime);
         }
     }
 
