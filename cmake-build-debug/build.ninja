@@ -65,6 +65,22 @@ build CMakeFiles/untitled1.dir/graph_loader.cpp.obj: CXX_COMPILER__untitled1_uns
   TARGET_COMPILE_PDB = CMakeFiles\untitled1.dir\
   TARGET_PDB = untitled1.pdb
 
+build CMakeFiles/untitled1.dir/menu.cpp.obj: CXX_COMPILER__untitled1_unscanned_Debug C$:/Users/joaog/Documents/GitHub/DA/menu.cpp || cmake_object_order_depends_target_untitled1
+  DEP_FILE = CMakeFiles\untitled1.dir\menu.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\untitled1.dir
+  OBJECT_FILE_DIR = CMakeFiles\untitled1.dir
+  TARGET_COMPILE_PDB = CMakeFiles\untitled1.dir\
+  TARGET_PDB = untitled1.pdb
+
+build CMakeFiles/untitled1.dir/algorithms.cpp.obj: CXX_COMPILER__untitled1_unscanned_Debug C$:/Users/joaog/Documents/GitHub/DA/algorithms.cpp || cmake_object_order_depends_target_untitled1
+  DEP_FILE = CMakeFiles\untitled1.dir\algorithms.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\untitled1.dir
+  OBJECT_FILE_DIR = CMakeFiles\untitled1.dir
+  TARGET_COMPILE_PDB = CMakeFiles\untitled1.dir\
+  TARGET_PDB = untitled1.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target untitled1
@@ -73,7 +89,7 @@ build CMakeFiles/untitled1.dir/graph_loader.cpp.obj: CXX_COMPILER__untitled1_uns
 #############################################
 # Link the executable untitled1.exe
 
-build untitled1.exe: CXX_EXECUTABLE_LINKER__untitled1_Debug CMakeFiles/untitled1.dir/main.cpp.obj CMakeFiles/untitled1.dir/graph_loader.cpp.obj
+build untitled1.exe: CXX_EXECUTABLE_LINKER__untitled1_Debug CMakeFiles/untitled1.dir/main.cpp.obj CMakeFiles/untitled1.dir/graph_loader.cpp.obj CMakeFiles/untitled1.dir/menu.cpp.obj CMakeFiles/untitled1.dir/algorithms.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\untitled1.dir

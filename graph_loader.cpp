@@ -69,10 +69,8 @@ void readDistances(const std::string &filename, Graph<string> &graph) {
             int walkingTime = stoi(walkingTimeStr);
 
             // Add bidirectional edges for both driving and walking
-            graph.addEdge(loc1, loc2, drivingTime); // Edge weight represents driving time
-            graph.addEdge(loc2, loc1, drivingTime);// Since the graph is undirected
-            graph.addEdge(loc1, loc2, walkingTime);
-            graph.addEdge(loc2, loc1, walkingTime);
+            graph.addEdge(loc1, loc2, drivingTime, walkingTime); // Edge weight represents driving time
+            graph.addEdge(loc2, loc1, drivingTime, walkingTime);// Since the graph is undirected
         }
     }
 

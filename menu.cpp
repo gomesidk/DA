@@ -14,50 +14,48 @@ void main_menu();
 
 int main() {
     ifstream infile("input.txt");
-    if (infile.good()) {
-        cout << "Batch mode detected. Processing input.txt..." << endl;
-        //process_batch_mode();
-    } else {
+    string mode;
+
+    cout << "Which mode do you want? Interactive or Batch Mode? (Enter 'I' for Interactive, 'B' for Batch): ";
+    cin >> mode;
+
+    if (mode == "I" || mode == "i") {
+        cout << "You have chosen Interactive Mode." << endl;
+        // Implement interactive mode logic here
         main_menu();
     }
+    else if (mode == "B" || mode == "b") {
+        cout << "You have chosen Batch Mode." << endl;
+        if (!infile) {
+            cout << "Error: Could not open input.txt." << endl;
+            return 1;
+        }
+        // Implement batch processing logic here
+    }
+    else {
+        cout << "Invalid choice. Please restart the program and enter 'I' or 'B'." << endl;
+    }
+
     return 0;
 }
 
 void main_menu() {
     while (true) {
-        cout << "\n==== Route Planning Tool ====" << endl;
-        cout << "1. Load Data" << endl;
-        cout << "2. Find Fastest Route" << endl;
-        cout << "3. Find Alternative Route" << endl;
-        cout << "4. Plan a Restricted Route" << endl;
-        cout << "5. Plan an Environmentally Friendly Route" << endl;
-        cout << "6. Quit" << endl;
-        cout << "Enter your choice: ";
-
         int choice;
+        string mode;
+        cout << "We are now going to load you data" << endl;
+        cout << "Choose the mode of your route: \n 1.Driving \n 2.Driving-Walking" << endl;
         cin >> choice;
-
-        switch (choice) {
-            case 1:
-                //load_data();
-            break;
-            case 2:
-                //find_fastest_route();
-            break;
-            case 3:
-                //find_alternative_route();
-            break;
-            case 4:
-                //plan_restricted_route();
-            break;
-            case 5:
-                //plan_eco_route();
-            break;
-            case 6:
-                cout << "Exiting..." << endl;
-            return;
-            default:
-                cout << "Invalid choice. Please try again." << endl;
+        if (choice == 1) {
+            mode = "Driving";
         }
+        else if (choice == 2) {
+            mode = "Driving-Walking";
+        }
+        else {
+            cout << "Invalid choice. Please try again." << endl;
+            break;
+        }
+        cout << "Choose the source node of your route" << endl;
     }
 }
