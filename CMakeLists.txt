@@ -8,4 +8,5 @@ add_executable(untitled1 main.cpp
         graph_loader.cpp
         graph_loader.h
         menu.cpp
-        algorithms.cpp)
+        algorithms.cpp
+        menu.h)
