@@ -36,7 +36,7 @@ void main_menu() {
 }
 
 void menu(RouteOptions &options) {
-    while (true) {
+
         int choice;
         int node;
         int source_node2;
@@ -60,7 +60,6 @@ void menu(RouteOptions &options) {
             else if (choice == 2) {
                 options.mode = "Driving-Walking";
             }
-            break;
         }
         cout << "Choose the source node of your route" << endl;
         cin >> options.sourceNode;
@@ -127,10 +126,8 @@ void menu(RouteOptions &options) {
                 cin >> options.includedNode;
             }
         }
-    }
-}
 
-#include "menu.h"
+}
 
 bool batch_mode(RouteOptions &options) {
     std::ifstream infile("input.txt");

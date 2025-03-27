@@ -3,6 +3,7 @@
 
 #include "graph.h"
 #include <string>
+using namespace std;
 
 class GraphLoader {
 public:
