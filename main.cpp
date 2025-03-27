@@ -5,8 +5,8 @@
 using namespace std;
 
 int main() {
-    string locationsFile = "data/locations.csv";
-    string distancesFile = "data/distances.csv";
+    string locationsFile = "../data/Locations.csv";
+    string distancesFile = "../data/Distances.csv";
 
     Graph<string> graph = GraphLoader::loadGraph(locationsFile, distancesFile);
 

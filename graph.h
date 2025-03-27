@@ -46,7 +46,7 @@ public:
     void setIndegree(unsigned int indegree);
     void setDist(double dist);
     void setPath(Edge<T> *path);
-    Edge<T> * addEdge(Vertex<T> *dest, double w);
+    Edge<T> * addEdge(Vertex<T> *dest, int driving_time, int walking_time);
     bool removeEdge(T in);
     void removeOutgoingEdges();
 
@@ -164,8 +164,8 @@ Vertex<T>::Vertex(T in, bool parking): info(in), parking(parking) {}
  * with a given destination vertex (d) and edge weight (w).
  */
 template <class T>
-Edge<T> * Vertex<T>::addEdge(Vertex<T> *d, double w) {
-    auto newEdge = new Edge<T>(this, d, w);
+Edge<T> * Vertex<T>::addEdge(Vertex<T> *d, int driving_time, int walking_time) {
+    auto newEdge = new Edge<T>(this, d, walking_time, driving_time);
     adj.push_back(newEdge);
     d->incoming.push_back(newEdge);
     return newEdge;
