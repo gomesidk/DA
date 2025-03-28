@@ -21,7 +21,7 @@ class Edge;
 template <class T>
 class Vertex {
 public:
-    Vertex(T in, bool parking);
+    Vertex(T in, bool parking, int id);
     bool operator<(Vertex<T> & vertex) const; // // required by MutablePriorityQueue
 
     T getInfo() const;
@@ -55,6 +55,7 @@ protected:
     T info;                // info node
     std::vector<Edge<T> *> adj;  // outgoing edges
     bool parking;
+    int id;
 
     // auxiliary fields
     bool visited = false; // used by DFS, BFS, Prim ...
@@ -118,7 +119,7 @@ public:
      *  Adds a vertex with a given content or info (in) to a graph (this).
      *  Returns true if successful, and false if a vertex with that content already exists.
      */
-    bool addVertex(const T &in, bool parking);
+    bool addVertex(const T &in, bool parking, int id);
     bool removeVertex(const T &in);
 
     /*
@@ -133,6 +134,9 @@ public:
     int getNumVertex() const;
 
     std::vector<Vertex<T> *> getVertexSet() const;
+
+    int findVertexId(const T &in) const;
+
 
 
 protected:
@@ -158,7 +162,7 @@ void deleteMatrix(double **m, int n);
 /************************* Vertex  **************************/
 
 template <class T>
-Vertex<T>::Vertex(T in, bool parking): info(in), parking(parking) {}
+Vertex<T>::Vertex(T in, bool parking, int id): info(in), parking(parking), id(id) {}
 /*
  * Auxiliary function to add an outgoing edge to a vertex (this),
  * with a given destination vertex (d) and edge weight (w).
@@ -414,15 +418,23 @@ int Graph<T>::findVertexIdx(const T &in) const {
             return i;
     return -1;
 }
+
+template <class T>
+int Graph<T>::findVertexId(const T &in) const {
+    for (unsigned i = 0; i < vertexSet.size(); i++)
+        if (vertexSet[i]->getInfo() == in)
+            return i + 1;
+    return -1;
+}
 /*
  *  Adds a vertex with a given content or info (in) to a graph (this).
  *  Returns true if successful, and false if a vertex with that content already exists.
  */
 template <class T>
-bool Graph<T>::addVertex(const T &in, const bool parking) {
+bool Graph<T>::addVertex(const T &in, const bool parking, int id) {
     if (findVertex(in) != nullptr)
         return false;
-    vertexSet.push_back(new Vertex<T>(in, parking));
+    vertexSet.push_back(new Vertex<T>(in, parking, id));
     return true;
 }
 

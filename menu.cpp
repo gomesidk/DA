@@ -6,10 +6,13 @@
 #include <sstream>
 #include "menu.h"
 
+#include "algorithms.h"
+#include "graph.h"
+
 using namespace std;
 
 
-void main_menu() {
+void main_menu(Graph<string> &graph) {
     ifstream infile("input.txt");
     string mode;
     RouteOptions options;
@@ -21,6 +24,10 @@ void main_menu() {
         // Implement interactive mode logic here
         RouteOptions options;
         menu(options);
+        string node1, node2;
+        node1 = graph.getVertexSet()[options.sourceNode - 1]->getInfo();
+        node2 = graph.getVertexSet()[options.destinationNode - 1]->getInfo();
+        dijkstra(&graph, node1, node2);
     }
     else if (mode == "B" || mode == "b") {
         cout << "You have chosen Batch Mode." << endl;

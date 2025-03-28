@@ -12,6 +12,6 @@ int main() {
 
     std::cout << "Graph loaded successfully with " << graph.getNumVertex() << " locations." << std::endl;
 
-    main_menu();
+    main_menu(graph);
     return 0;
 }

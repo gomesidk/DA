@@ -33,9 +33,9 @@ void readLocations(const string &filename, Graph<string> &graph) {
             getline(ss, parkingStr, ',')) {
 
             bool hasParking = (parkingStr == "1");
-
+            int id = stoi(idStr);
             // Add vertex to graph (store parking info in the vertex if needed)
-            graph.addVertex(idStr, hasParking);
+            graph.addVertex(code, hasParking, id);
         }
     }
 
