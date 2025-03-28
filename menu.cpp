@@ -125,7 +125,6 @@ void menu(RouteOptions &options) {
                 cin >> options.includedNode;
             }
         }
-
 }
 
 
