@@ -1,3 +1,0 @@
-C:/Users/Asus/Documents/FEUP/LEIC/2024-2025/DA/PROJ1/DA/cmake-build-debug/CMakeFiles/untitled1.dir
-C:/Users/Asus/Documents/FEUP/LEIC/2024-2025/DA/PROJ1/DA/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Asus/Documents/FEUP/LEIC/2024-2025/DA/PROJ1/DA/cmake-build-debug/CMakeFiles/rebuild_cache.dir
