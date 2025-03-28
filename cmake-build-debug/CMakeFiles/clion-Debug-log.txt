@@ -11,6 +11,6 @@
 -- Check for working CXX compiler: C:/Program Files/JetBrains/CLion 2024.3.4/bin/mingw/bin/g++.exe - skipped
 -- Detecting CXX compile features
 -- Detecting CXX compile features - done
--- Configuring done (2.0s)
--- Generating done (0.0s)
+-- Configuring done (5.0s)
+-- Generating done (0.1s)
 -- Build files have been written to: C:/Users/Asus/Documents/FEUP/LEIC/2024-2025/DA/PROJ1/DA/cmake-build-debug

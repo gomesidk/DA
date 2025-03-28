@@ -128,6 +128,30 @@ untitled1/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/build
 .PHONY : untitled1/fast
 
+algorithms.obj: algorithms.cpp.obj
+.PHONY : algorithms.obj
+
+# target to build an object file
+algorithms.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/algorithms.cpp.obj
+.PHONY : algorithms.cpp.obj
+
+algorithms.i: algorithms.cpp.i
+.PHONY : algorithms.i
+
+# target to preprocess a source file
+algorithms.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/algorithms.cpp.i
+.PHONY : algorithms.cpp.i
+
+algorithms.s: algorithms.cpp.s
+.PHONY : algorithms.s
+
+# target to generate assembly for a file
+algorithms.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/algorithms.cpp.s
+.PHONY : algorithms.cpp.s
+
 graph_loader.obj: graph_loader.cpp.obj
 .PHONY : graph_loader.obj
 
@@ -176,6 +200,30 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+menu.obj: menu.cpp.obj
+.PHONY : menu.obj
+
+# target to build an object file
+menu.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/menu.cpp.obj
+.PHONY : menu.cpp.obj
+
+menu.i: menu.cpp.i
+.PHONY : menu.i
+
+# target to preprocess a source file
+menu.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/menu.cpp.i
+.PHONY : menu.cpp.i
+
+menu.s: menu.cpp.s
+.PHONY : menu.s
+
+# target to generate assembly for a file
+menu.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/menu.cpp.s
+.PHONY : menu.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -185,12 +233,18 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... untitled1
+	@echo ... algorithms.obj
+	@echo ... algorithms.i
+	@echo ... algorithms.s
 	@echo ... graph_loader.obj
 	@echo ... graph_loader.i
 	@echo ... graph_loader.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... menu.obj
+	@echo ... menu.i
+	@echo ... menu.s
 .PHONY : help
 
 

@@ -96,21 +96,53 @@ CMakeFiles/untitled1.dir/graph_loader.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/untitled1.dir/graph_loader.cpp.s"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Asus\Documents\FEUP\LEIC\2024-2025\DA\PROJ1\DA\graph_loader.cpp -o CMakeFiles\untitled1.dir\graph_loader.cpp.s
 
+CMakeFiles/untitled1.dir/menu.cpp.obj: CMakeFiles/untitled1.dir/flags.make
+CMakeFiles/untitled1.dir/menu.cpp.obj: C:/Users/Asus/Documents/FEUP/LEIC/2024-2025/DA/PROJ1/DA/menu.cpp
+CMakeFiles/untitled1.dir/menu.cpp.obj: CMakeFiles/untitled1.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Asus\Documents\FEUP\LEIC\2024-2025\DA\PROJ1\DA\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/untitled1.dir/menu.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/untitled1.dir/menu.cpp.obj -MF CMakeFiles\untitled1.dir\menu.cpp.obj.d -o CMakeFiles\untitled1.dir\menu.cpp.obj -c C:\Users\Asus\Documents\FEUP\LEIC\2024-2025\DA\PROJ1\DA\menu.cpp
+
+CMakeFiles/untitled1.dir/menu.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/untitled1.dir/menu.cpp.i"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Asus\Documents\FEUP\LEIC\2024-2025\DA\PROJ1\DA\menu.cpp > CMakeFiles\untitled1.dir\menu.cpp.i
+
+CMakeFiles/untitled1.dir/menu.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/untitled1.dir/menu.cpp.s"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Asus\Documents\FEUP\LEIC\2024-2025\DA\PROJ1\DA\menu.cpp -o CMakeFiles\untitled1.dir\menu.cpp.s
+
+CMakeFiles/untitled1.dir/algorithms.cpp.obj: CMakeFiles/untitled1.dir/flags.make
+CMakeFiles/untitled1.dir/algorithms.cpp.obj: C:/Users/Asus/Documents/FEUP/LEIC/2024-2025/DA/PROJ1/DA/algorithms.cpp
+CMakeFiles/untitled1.dir/algorithms.cpp.obj: CMakeFiles/untitled1.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Asus\Documents\FEUP\LEIC\2024-2025\DA\PROJ1\DA\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/untitled1.dir/algorithms.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/untitled1.dir/algorithms.cpp.obj -MF CMakeFiles\untitled1.dir\algorithms.cpp.obj.d -o CMakeFiles\untitled1.dir\algorithms.cpp.obj -c C:\Users\Asus\Documents\FEUP\LEIC\2024-2025\DA\PROJ1\DA\algorithms.cpp
+
+CMakeFiles/untitled1.dir/algorithms.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/untitled1.dir/algorithms.cpp.i"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Asus\Documents\FEUP\LEIC\2024-2025\DA\PROJ1\DA\algorithms.cpp > CMakeFiles\untitled1.dir\algorithms.cpp.i
+
+CMakeFiles/untitled1.dir/algorithms.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/untitled1.dir/algorithms.cpp.s"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Asus\Documents\FEUP\LEIC\2024-2025\DA\PROJ1\DA\algorithms.cpp -o CMakeFiles\untitled1.dir\algorithms.cpp.s
+
 # Object files for target untitled1
 untitled1_OBJECTS = \
 "CMakeFiles/untitled1.dir/main.cpp.obj" \
-"CMakeFiles/untitled1.dir/graph_loader.cpp.obj"
+"CMakeFiles/untitled1.dir/graph_loader.cpp.obj" \
+"CMakeFiles/untitled1.dir/menu.cpp.obj" \
+"CMakeFiles/untitled1.dir/algorithms.cpp.obj"
 
 # External object files for target untitled1
 untitled1_EXTERNAL_OBJECTS =
 
 untitled1.exe: CMakeFiles/untitled1.dir/main.cpp.obj
 untitled1.exe: CMakeFiles/untitled1.dir/graph_loader.cpp.obj
+untitled1.exe: CMakeFiles/untitled1.dir/menu.cpp.obj
+untitled1.exe: CMakeFiles/untitled1.dir/algorithms.cpp.obj
 untitled1.exe: CMakeFiles/untitled1.dir/build.make
 untitled1.exe: CMakeFiles/untitled1.dir/linkLibs.rsp
 untitled1.exe: CMakeFiles/untitled1.dir/objects1.rsp
 untitled1.exe: CMakeFiles/untitled1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\Asus\Documents\FEUP\LEIC\2024-2025\DA\PROJ1\DA\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable untitled1.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\Asus\Documents\FEUP\LEIC\2024-2025\DA\PROJ1\DA\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable untitled1.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\untitled1.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
