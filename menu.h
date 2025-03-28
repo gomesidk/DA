@@ -16,4 +16,6 @@ struct RouteOptions {
 
 void menu(RouteOptions &options);
 
+bool batch_mode(RouteOptions &options);
+
 #endif // MENU_H

@@ -104,7 +104,8 @@
 			[
 				1,
 				3,
-				6
+				6,
+				7
 			]
 		}
 	],
@@ -147,6 +148,11 @@
 		{
 			"backtrace" : 1,
 			"path" : "menu.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "route_planner.h",
 			"sourceGroupIndex" : 1
 		}
 	],

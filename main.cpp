@@ -1,6 +1,7 @@
 #include <iostream>
 #include "graph_loader.h"
 #include "menu.h"
+#include "route_planner.h"
 
 using namespace std;
 
@@ -13,5 +14,6 @@ int main() {
     std::cout << "Graph loaded successfully with " << graph.getNumVertex() << " locations." << std::endl;
 
     main_menu();
+
     return 0;
 }

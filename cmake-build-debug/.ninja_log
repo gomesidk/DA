@@ -1,16 +1,6 @@
 # ninja log v6
-6	486	7643839640171743	CMakeFiles/untitled1.dir/main.cpp.obj	2f54941f250b6e7a
-11	802	7643839640221680	CMakeFiles/untitled1.dir/graph_loader.cpp.obj	28a2c1f92ec02da7
-802	918	7643839648135036	untitled1.exe	4098784ea1d1b355
-37	144	7648085501237679	CMakeFiles/untitled1.dir/algorithms.cpp.obj	181a5ff0acd07b89
-33	832	7648085501197672	CMakeFiles/untitled1.dir/menu.cpp.obj	97fcde41037ca8a1
-6	653	7648085771948061	CMakeFiles/untitled1.dir/main.cpp.obj	2f54941f250b6e7a
-4	597	7648086827989401	CMakeFiles/untitled1.dir/main.cpp.obj	2f54941f250b6e7a
-9	1023	7648086828040066	CMakeFiles/untitled1.dir/graph_loader.cpp.obj	28a2c1f92ec02da7
-1023	1388	7648086838168689	untitled1.exe	45b074ad3cb01a99
 3	597	7648086973659198	CMakeFiles/untitled1.dir/main.cpp.obj	2f54941f250b6e7a
-597	766	7648086979592408	untitled1.exe	45b074ad3cb01a99
 6	981	7648087975130303	CMakeFiles/untitled1.dir/graph_loader.cpp.obj	28a2c1f92ec02da7
-981	1129	7648087984886904	untitled1.exe	45b074ad3cb01a99
-4	872	7648089214026751	CMakeFiles/untitled1.dir/menu.cpp.obj	97fcde41037ca8a1
 872	1078	7648089222713691	untitled1.exe	45b074ad3cb01a99
+37	144	7648085501237679	CMakeFiles/untitled1.dir/algorithms.cpp.obj	181a5ff0acd07b89
+4	872	7648089214026751	CMakeFiles/untitled1.dir/menu.cpp.obj	97fcde41037ca8a1

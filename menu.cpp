@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <sstream>
 #include "menu.h"
+#include "route_planner.h"
 
 using namespace std;
 
@@ -19,7 +20,6 @@ void main_menu() {
     if (mode == "I" || mode == "i") {
         cout << "You have chosen Interactive Mode." << endl;
         // Implement interactive mode logic here
-        RouteOptions options;
         menu(options);
     }
     else if (mode == "B" || mode == "b") {
@@ -27,7 +27,12 @@ void main_menu() {
         if (!infile) {
             cout << "Error: Could not open input.txt." << endl;
         }
-        // Implement batch processing logic here
+        if (batch_mode(options)) {
+            cout << "batch mode successful" << endl;
+        }
+        else {
+            cout << "batch mode failed" << endl;
+        }
     }
     else {
         cout << "Invalid choice. Please restart the program and enter 'I' or 'B'." << endl;
@@ -36,7 +41,6 @@ void main_menu() {
 }
 
 void menu(RouteOptions &options) {
-
         int choice;
         int node;
         int source_node2;
@@ -126,6 +130,7 @@ void menu(RouteOptions &options) {
                 cin >> options.includedNode;
             }
         }
+    dijkstraDriving(g, options.includedNode, options.destinationNode);
 
 }
 
