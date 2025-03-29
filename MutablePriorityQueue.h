@@ -10,6 +10,7 @@
 #define DA_TP_CLASSES_MUTABLEPRIORITYQUEUE
 
 #include <vector>
+using namespace std;
 
 /**
  * class M must have: (i) accessible field int queueIndex; (ii) operator< defined.
@@ -21,6 +22,7 @@ class MutablePriorityQueue {
     void heapifyUp(unsigned i);
     void heapifyDown(unsigned i);
     inline void set(unsigned i, M * x);
+    void printQueue();
 public:
     MutablePriorityQueue();
     void insert(M * x);
@@ -63,17 +65,31 @@ void MutablePriorityQueue<M>::insert(M *x) {
 
 template <class M>
 void MutablePriorityQueue<M>::decreaseKey(M *x) {
+    printQueue();
     heapifyUp(x->queueIndex);
+    printQueue();
+}
+
+template <class M>
+void MutablePriorityQueue<M>::printQueue() {
+    cout << "Priority Queue Contents: ";
+    for (unsigned i = 1; i < H.size(); ++i) {
+        cout << H[i]->getInfo() << " ";
+    }
+    cout << endl;
 }
 
 template <class M>
 void MutablePriorityQueue<M>::heapifyUp(unsigned i) {
     auto x = H[i];
+    cout << "heapifyUp: Starting at position " << i << " with element: " << x->getInfo() << endl;
     while (i > 1 && *x < *H[parent(i)]) {
+        cout << "heapifyUp: Swapping with parent at position " << parent(i) << endl;
         set(i, H[parent(i)]);
         i = parent(i);
     }
     set(i, x);
+    cout << "heapifyUp: Finished at position " << i << " with element: " << x->getInfo() << endl;
 }
 
 template <class M>
@@ -95,8 +111,12 @@ void MutablePriorityQueue<M>::heapifyDown(unsigned i) {
 
 template <class M>
 void MutablePriorityQueue<M>::set(unsigned i, M * x) {
+    cout << "Setting position " << i << " with element: " << x->getInfo() << endl;
+    cout << "Element queueIndex before setting: " << x->queueIndex << endl;
     H[i] = x;
     x->queueIndex = i;
+    // Debugging output for queueIndex after setting
+    cout << "Element queueIndex after setting: " << x->queueIndex << endl;
 }
 
 #endif /* DA_TP_CLASSES_MUTABLEPRIORITYQUEUE */

@@ -20,20 +20,12 @@ std::vector<std::string> dijkstra(Graph<std::string>* g, const std::string& orig
         pred[v->getInfo()] = ""; // Initialize all predecessors as empty string
     }
 
-    for (auto v : vertices) {
-        cout << "Vertex: " << v->getInfo() << " with edges: ";
-        for (auto e : v->getAdj()) {
-            cout << e->getDest()->getInfo() << " ";
-        }
-        cout << endl;
-    }
+
 
     g->findVertex(origin)->setDist(0); // Distance to the origin is 0
     pred[origin] = ""; // The origin has no predecessor
 
-    for (auto v : vertices) {
-        cout << "Initial Distance for " << v->getInfo() << ": " << v->getDist() << endl;
-    }
+
 
     // Mutable priority queue
     MutablePriorityQueue<Vertex<std::string>> pq;
@@ -48,8 +40,6 @@ std::vector<std::string> dijkstra(Graph<std::string>* g, const std::string& orig
         // Add to the set of nodes whose shortest path is known
         S.insert(u->getInfo());
 
-        // Debugging: Print current vertex and its distance
-        cout << "Processing vertex: " << u->getInfo() << " with distance: " << u->getDist() << endl;
 
         // Relaxation of edges
         for (auto e : u->getAdj()) {
@@ -64,20 +54,12 @@ std::vector<std::string> dijkstra(Graph<std::string>* g, const std::string& orig
                 e->getDest()->setDist(alt);
                 pred[v] = u->getInfo();
 
-                // Debugging: Print the updated distance
-                cout << "Updating distance for " << v << ": " << alt << endl;
 
                 // Update the priority queue
                 pq.decreaseKey(e->getDest());
             }
         }
     }
-
-    cout << "Predecessor map: ";
-    for (const auto& p : pred) {
-        cout << p.first << " -> " << p.second << ", ";
-    }
-    cout << endl;
 
     // Reconstruct the path
     std::vector<std::string> path;
