@@ -1,8 +1,8 @@
 #include "graph.h"
 #include "algorithms.h"
 #include "MutablePriorityQueue.h"
-#include <unordered_set>
 #include <unordered_map>
+#include <unordered_set>
 #include <limits>
 #include <vector>
 #include <algorithm>
@@ -13,58 +13,96 @@ std::vector<std::string> dijkstra(Graph<std::string>* g, const std::string& orig
     std::unordered_map<std::string, std::string> pred;
     std::unordered_set<std::string> S; // Set of nodes whose shortest path is known
 
-    // Inicializa distâncias, predecessores e adiciona todos os vértices à fila de prioridade
+    // Initialize distances, predecessors, and add all vertices to the priority queue
     for (auto v : vertices) {
-        v->setDist(std::numeric_limits<double>::infinity());  // distâncias como infinito
-        v->setVisited(false); // Inicializa como não visitado
-        pred[v->getInfo()] = ""; // Inicializa todos os predecessores como ""
+        v->setDist(std::numeric_limits<double>::infinity());  // distances as infinity
+        v->setVisited(false); // Mark as unvisited
+        pred[v->getInfo()] = ""; // Initialize all predecessors as empty string
     }
 
-    g->findVertex(origin)->setDist(0); // Distância da origem é 0
-    pred[origin] = ""; // Não tem predecessor para a origem
+    for (auto v : vertices) {
+        cout << "Vertex: " << v->getInfo() << " with edges: ";
+        for (auto e : v->getAdj()) {
+            cout << e->getDest()->getInfo() << " ";
+        }
+        cout << endl;
+    }
 
-    // Fila de prioridade mutável
+    g->findVertex(origin)->setDist(0); // Distance to the origin is 0
+    pred[origin] = ""; // The origin has no predecessor
+
+    for (auto v : vertices) {
+        cout << "Initial Distance for " << v->getInfo() << ": " << v->getDist() << endl;
+    }
+
+    // Mutable priority queue
     MutablePriorityQueue<Vertex<std::string>> pq;
     for (auto v : vertices) {
-        pq.insert(v); // Adiciona todos os vértices à fila de prioridade
+        pq.insert(v); // Add all vertices to the priority queue
     }
 
+    // Start Dijkstra's algorithm
     while (!pq.empty()) {
-        Vertex<std::string>* u = pq.extractMin(); // Extrai o vértice com a menor distância
+        Vertex<std::string>* u = pq.extractMin(); // Extract vertex with the smallest distance
 
-        S.insert(u->getInfo()); // Adiciona u ao conjunto S (vértices com caminho conhecido)
+        // Add to the set of nodes whose shortest path is known
+        S.insert(u->getInfo());
 
-        // Relaxamento das arestas
+        // Debugging: Print current vertex and its distance
+        cout << "Processing vertex: " << u->getInfo() << " with distance: " << u->getDist() << endl;
+
+        // Relaxation of edges
         for (auto e : u->getAdj()) {
             std::string v = e->getDest()->getInfo();
             int driveTime = e->getDriveTime();
 
-            if (driveTime < 0) continue; // Ignora ruas não transitáveis de carro
+            if (driveTime < 0) continue; // Ignore roads that are not passable by car
 
             double alt = u->getDist() + driveTime;
             if (alt < e->getDest()->getDist()) {
-                e->getDest()->setDist(alt); // Atualiza a distância de v
-                pred[v] = u->getInfo(); // Atualiza o predecessor de v
-                pq.decreaseKey(e->getDest()); // Atualiza a posição de v na fila de prioridade
+                // Update distance and predecessor
+                e->getDest()->setDist(alt);
+                pred[v] = u->getInfo();
+
+                // Debugging: Print the updated distance
+                cout << "Updating distance for " << v << ": " << alt << endl;
+
+                // Update the priority queue
+                pq.decreaseKey(e->getDest());
             }
         }
     }
-    // Reconstrução do caminho
+
+    cout << "Predecessor map: ";
+    for (const auto& p : pred) {
+        cout << p.first << " -> " << p.second << ", ";
+    }
+    cout << endl;
+
+    // Reconstruct the path
     std::vector<std::string> path;
     std::string current = destination;
 
-    // Se a distância para o destino for infinita, significa que não existe caminho
+    // If the distance to the destination is still infinity, return an empty path
     if (g->findVertex(current)->getDist() == std::numeric_limits<double>::infinity()) {
-        return {}; // Não existe caminho
+        cout << "No path found!" << endl;
+        return {}; // No path found
     }
 
-    // Reconstruir o caminho a partir dos predecessores
+    // Rebuild the path from the destination to the origin
     while (current != origin) {
         path.push_back(current);
         current = pred[current];
     }
-    path.push_back(origin); // Adiciona a origem ao caminho
-    std::reverse(path.begin(), path.end()); // Reverte o caminho para a ordem correta
-    cout << path.size() << endl;
+    path.push_back(origin); // Add the origin to the path
+    std::reverse(path.begin(), path.end()); // Reverse to get the path from origin to destination
+
+    // Debugging: Print the final path
+    cout << "Shortest path: ";
+    for (const auto& node : path) {
+        cout << node << " ";
+    }
+    cout << endl;
+
     return path;
 }

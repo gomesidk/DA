@@ -46,6 +46,7 @@ void readLocations(const string &filename, Graph<string> &graph) {
  * Reads distances.csv and adds edges to the graph.
  */
 void readDistances(const std::string &filename, Graph<string> &graph) {
+    int num_of_edges = 0;
     int driving_time;
     int walking_time;
     ifstream file(filename);
@@ -74,11 +75,12 @@ void readDistances(const std::string &filename, Graph<string> &graph) {
             }
 
             // Add bidirectional edges for both driving and walking
+            num_of_edges++;
             graph.addEdge(loc1, loc2, driving_time, walking_time); // Edge weight represents driving time
             graph.addEdge(loc2, loc1, driving_time, walking_time);// Since the graph is undirected
         }
     }
-
+    cout << "number of edges: " << num_of_edges << endl;
     file.close();
 }
 
